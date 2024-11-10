@@ -1,0 +1,102 @@
+//Defining colors
+$baseDark: #000000;
+$baseLight: #F8FAFC;
+$grey: #4D5562;
+$beige: #D9D9D9;
+
+//Defining typography
+@mixin headingL {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 2.25rem;
+}
+
+@mixin headingS {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.25rem;
+}
+
+@mixin date {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 0.875rem;
+}
+
+//Adding style to the layout
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $baseLight;
+    padding-top: 24px;
+}
+
+h1 {
+    @include headingL();
+    text-align: center;
+}
+
+h2 {
+    @include headingS();
+}
+
+p.articleDate {
+    @include date();
+    color: $grey;
+}
+
+.divider {
+    height: 16px;
+    width: 180px;
+    background-image: url("../resources/Seperator.svg");
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+
+.article {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+
+    img {
+        border-radius: 16px;
+    }
+
+    .articleHeader {
+        margin-bottom: 16px;
+        transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        .articleHeader {
+            color: #735A9B;
+        }
+    }
+}
+
+.mainWrap {
+    width: 50%;
+    min-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (max-width: 640px) {
+    .mainWrap {
+        width: 90%;
+    }
+}
